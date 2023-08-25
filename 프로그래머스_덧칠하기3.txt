@@ -1,0 +1,12 @@
+# 다른사람 풀이 참고로 해결
+#벽전체가 아닌 섹션만 돌아서 해결할수 있었다
+#벽에서 안칠해진 부분을 찾는 과정 자체를 없애고 대신에 섹션에서 칠해야할 벽부터 칠하고 그다음 칠해야할 섹션별로 순회한다
+def solution(n, m, section):
+
+    answer = 0
+    loc= section[0]-1
+    for i in section:
+        if loc<i:
+            loc=i+m-1
+            answer+=1
+    return answer
