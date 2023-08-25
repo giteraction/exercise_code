@@ -1,0 +1,25 @@
+def solution(n, m, section):
+
+    answer = 0
+    
+    # wall=[]
+    # for i in range(n):
+    #     if i+1 in section:
+    #         wall.append(1)
+    #     else:
+    #         wall.append(0)
+
+    wall=[0 for i in range(n)]    
+    for i in section:
+        wall[i-1]=1
+        
+    while sum(wall)!=0:
+    # if 1 in wall:
+        cog=wall.index(1)
+        wall=wall[cog::] #칠한 벽은 다음부터 순회하지 않게 슬라이싱
+        for i in range(m):
+            try:
+                wall[i]=0
+            except:pass
+        answer+=1
+    return answer
