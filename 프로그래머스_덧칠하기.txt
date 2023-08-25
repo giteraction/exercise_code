@@ -1,0 +1,26 @@
+
+#시간초과 > index()함수에서 for문 을 여러번 돌게됨 
+def solution(n, m, section):
+
+    answer = 0
+    
+    # wall=[]
+    # for i in range(n):
+    #     if i+1 in section:
+    #         wall.append(1)
+    #     else:
+    #         wall.append(0)
+
+    wall=[0 for i in range(n)]    
+    for i in section:
+        wall[i-1]=1
+        
+    while sum(wall)!=0:
+        if 1 in wall:
+            cog=wall.index(1)
+            for i in range(cog,cog+m):
+                try:
+                    wall[i]=0
+                except:pass
+            answer+=1
+    return answer
