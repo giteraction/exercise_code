@@ -1,0 +1,47 @@
+문제 설명
+휴대폰의 자판은 컴퓨터 키보드 자판과는 다르게 하나의 키에 여러 개의 문자가 할당될 수 있습니다. 키 하나에 여러 문자가 할당된 경우, 동일한 키를 연속해서 빠르게 누르면 할당된 순서대로 문자가 바뀝니다.
+
+예를 들어, 1번 키에 "A", "B", "C" 순서대로 문자가 할당되어 있다면 1번 키를 한 번 누르면 "A", 두 번 누르면 "B", 세 번 누르면 "C"가 되는 식입니다.
+(이하 중략)
+
+def solution(keymap, target):
+    key_index = []
+    map1=[]
+    answer=[]
+    
+    
+    for i in keymap:
+        for n,j in enumerate(i):
+            if j in map1:
+                if key_index[map1.index(j)]<=n:
+                    pass
+                else:
+                    key_index[map1.index(j)]=n
+                    map1[map1.index(j)]=j
+            else:
+                map1.append(j)
+                key_index.append(n)
+    print(map1)
+    print(key_index)
+    result=0
+    breaker=False
+    for i in target:
+
+        for j in i:
+            try:
+                result+=key_index[map1.index(j)]+1
+            except:
+                answer.append(-1)
+                
+                breaker=True
+                break
+        if breaker ==True:
+            break
+        else:
+            answer.append(result) 
+        breaker =False
+        result=0
+    
+    return answer
+
+solution(["AGZ", "BSSS"],["ASA","BGZ"])
