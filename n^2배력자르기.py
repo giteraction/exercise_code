@@ -4,4 +4,3 @@ def solution(n, left, right):
         for j in range(n): 
             answer.append(max(nn,j)+1)
     return answer[left:right+1]
-solution(3,2,5)
