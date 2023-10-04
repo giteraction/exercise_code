@@ -1,0 +1,30 @@
+#n=2
+# # [[1,2],[1,3],[2,3]]
+
+# #n=3
+# # [[1,3],[1,2],[3,2],[1,3],[2,1],[2,3],[1,3]]
+
+# #n=4
+# # [[1,2],[1,3],[2,3],[1,2],[1,3],[1,2],[3,2],[1,3],[2,1],[2,3],[1,3]]
+
+# def solution(n):
+#     first=n
+#     answer = []
+#     even=[[1,2],[1,3],[2,3]]
+#     odd=[[1,3],[1,2],[3,2],[1,3],[2,1],[2,3],[1,3]]
+    
+#     if n==1:
+#         return [[1,3]]
+#     elif n==2:
+#         return even #[[1,2],[1,3],[2,3]]
+#     else:
+#         while first>2:
+#             if first%2==0:
+#                 for i in even:
+#                     answer.append(i)
+#             else:
+#                 for i in odd:
+#                     answer.append(i)
+#             first-=1
+    
+#     return answer
